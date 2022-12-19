@@ -23,19 +23,17 @@ cd
 
 
 
-
 Add the following to the each variables.tf file, and fill in the GCP Project ID:
+
 
 
 variable "region" {
  default = "us-east1"
 }
 
-
 variable "zone" {
  default = "us-east1-b"
 }
-
 
 variable "project_id" {
  default = "<project_id>"
@@ -49,6 +47,7 @@ variable "project_id" {
 Add the following to the main.tf file :
 
 
+
 terraform {
   required_providers {
     google = {
@@ -58,20 +57,15 @@ terraform {
   }
 }
 
-
 provider "google" {
   project     = "<project_id>"
 
-
   region      = "us-east1"
-
 
   zone        = "us-east1-b"
 }
 
-
 module "instances" {
-
 
   source     = "./modules/instances"
 
@@ -86,14 +80,13 @@ Run terraform init in Cloud Shell in the root directory to initialize terraform.
 
 
 
-
-
-
-
 Task 2. Import infrastructure
 
 
+
+
 Next, navigate to modules/instances/instances.tf. Copy the following configuration into the file:
+
 
 
 resource "google_compute_instance" "tf-instance-1" {
@@ -101,13 +94,11 @@ resource "google_compute_instance" "tf-instance-1" {
   machine_type = "n1-standard-1"
   zone         = "us-east1-c"
 
-
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-10"
     }
   }
-
 
   network_interface {
  network = "default"
@@ -118,19 +109,16 @@ resource "google_compute_instance" "tf-instance-1" {
   allow_stopping_for_update = true
 }
 
-
 resource "google_compute_instance" "tf-instance-2" {
   name         = "tf-instance-2"
   machine_type = "n1-standard-1"
   zone         = "us-east1-c"
-
 
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-10"
     }
   }
-
 
   network_interface {
  network = "default"
@@ -150,8 +138,12 @@ Navigate to Compute Engine > VM Instances. Click on tf-instance-1. Copy the Inst
 Navigate to Compute Engine > VM Instances. Click on tf-instance-2. Copy the Instance ID 2469315227210915514
 
 
-Run in cloud shell
+
+
+Run the Below Commands In Cloud Shell : 
+
 terraform import module.instances.google_compute_instance.tf-instance-1 <Instance ID - 1>
+
 terraform import module.instances.google_compute_instance.tf-instance-2 <Instance ID - 2>
 
 
@@ -159,7 +151,9 @@ terraform plan
 terraform apply
 
 
+
 Task 3. Configure a remote backend
+
 
 
 Add the following code to the modules/storage/storage.tf file
@@ -187,7 +181,8 @@ module "storage" {
 
 
 
-Run cloud shell : 
+Run the Below Commands In Cloud Shell : 
+
 terraform init
 terraform apply
 
@@ -212,7 +207,9 @@ terraform {
 terraform init
 
 
+
 Task 4. Modify and update infrastructure
+
 
 
 navigate to modules/instances/instances.tf modify tf-instance-1 and tf-instance-2
@@ -235,7 +232,6 @@ resource "google_compute_instance" "<Instance Name>" {
     }
   }
 
-
   network_interface {
  network = "default"
   }
@@ -248,10 +244,10 @@ resource "google_compute_instance" "<Instance Name>" {
 
 
 
-Run cloud shell : 
+Run the Below Commands In Cloud Shell : 
+
 terraform init
 terraform apply
-
 
 
 
@@ -265,11 +261,11 @@ terraform plan
 terraform apply
 
 
-navigate to modules/instances/instances.tf remove tf-instance-3
+Navigate to modules/instances/instances.tf remove tf-instance-3
+
 
 
 terraform apply
-
 
 
 
@@ -314,7 +310,8 @@ module "vpc" {
 
 
 
-run cloud shell :
+Run the Below Commands In Cloud Shell : 
+
 terraform init
 terraform apply
 
@@ -329,13 +326,11 @@ resource "google_compute_instance" "tf-instance-1"{
   machine_type = "n1-standard-2"
   zone         = "us-east1-c"
 
-
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-10"
     }
   }
-
 
   network_interface {
     network = "<VPC_NAME>"
@@ -347,26 +342,23 @@ resource "google_compute_instance" "tf-instance-1"{
   allow_stopping_for_update = true
 }
 
-
 resource "google_compute_instance" "tf-instance-2"{
   name         = "tf-instance-2"
   machine_type = "n1-standard-2"
   zone         = "us-east1-c"
-
-
+  
+  
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-10"
     }
   }
 
-
   network_interface {
     network = "<VPC_NAME>"
      subnetwork = "subnet-02"
   }
-
-
+  
   metadata_startup_script = <<-EOT
         #!/bin/bash
     EOT
@@ -375,12 +367,8 @@ resource "google_compute_instance" "tf-instance-2"{
 
 
 
+Run the Below Commands In Cloud Shell : 
 
-
-
-
-
-run cloud shell :
 terraform init
 terraform apply
 
@@ -390,27 +378,30 @@ terraform apply
 Task - 6 : Configure a firewall
 
 
-Add the following resource to the main.tf file and fill in the GCP Project ID:
 
+Add the following resource to the main.tf file and fill in the GCP Project ID:
 
 
 
 resource "google_compute_firewall" "tf-firewall"{
   name    = "tf-firewall"
  network = "projects/<PROJECT_ID>/global/networks/<VPC_Name>"
-
-
+ 
   allow {
     protocol = "tcp"
     ports    = ["80"]
   }
-
-
+  
   source_tags = ["web"]
   source_ranges = ["0.0.0.0/0"]
 }
 
 
-run cloud shell : 
+Run the Below Commands In Cloud Shell : 
+
 terraform init
 terraform apply
+
+
+                                                                  Thanks for Watching my video!
+                                                                  Subscribe for more videos....
