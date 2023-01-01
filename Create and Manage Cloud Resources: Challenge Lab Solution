@@ -4,7 +4,7 @@
 #Task-1: Create a project Jumphost instance
 
 
-gcloud compute instances create nucleus-jumphost \
+gcloud compute instances create <Your Instance Name Goes Here> \
   --network nucleus-vpc \
   --zone us-east1-b  \
   --machine-type f1-micro  \
@@ -18,11 +18,11 @@ gcloud compute instances create nucleus-jumphost \
 gcloud container clusters create nucleus-backend \
           --num-nodes 1 \
           --network nucleus-vpc \
-          --region us-east1
+          --region <Your Zonal Goes Here>
 
 
 gcloud container clusters get-credentials nucleus-backend \
-          --region us-east1
+          --region <Your Zonal Goes Here>
 
 
 kubectl create deployment hello-server \
@@ -31,7 +31,7 @@ kubectl create deployment hello-server \
 
 kubectl expose deployment hello-server \
           --type=LoadBalancer \
-          --port 8080
+          --port <Your App Port Number Goes Here>
           
           
 #Task-3: Setup an HTTP load balancer
@@ -63,7 +63,7 @@ gcloud compute instance-groups managed create web-server-group \
 
 
 
-gcloud compute firewall-rules create web-server-firewall \
+gcloud compute firewall-rules create <Your Firewall rule Goes Here> \
           --allow tcp:80 \
           --network nucleus-vpc
 gcloud compute http-health-checks create http-basic-check
