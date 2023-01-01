@@ -1,7 +1,40 @@
 #Simply copy the following code and paste it into your console---
 
 
-#Task-3:
+#Task-1: Create a project Jumphost instance
+
+
+gcloud compute instances create nucleus-jumphost \
+  --network nucleus-vpc \
+  --zone us-east1-b  \
+  --machine-type f1-micro  \
+  --image-family debian-9  \
+  --image-project debian-cloud
+  
+ 
+#Task-2: Create a Kubernetes service cluster
+
+
+gcloud container clusters create nucleus-backend \
+          --num-nodes 1 \
+          --network nucleus-vpc \
+          --region us-east1
+
+
+gcloud container clusters get-credentials nucleus-backend \
+          --region us-east1
+
+
+kubectl create deployment hello-server \
+          --image=gcr.io/google-samples/hello-app:2.0
+
+
+kubectl expose deployment hello-server \
+          --type=LoadBalancer \
+          --port 8080
+          
+          
+#Task-3: Setup an HTTP load balancer
 
 
 cat << EOF > startup.sh
