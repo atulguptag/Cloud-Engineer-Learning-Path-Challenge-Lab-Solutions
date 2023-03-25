@@ -41,11 +41,7 @@ variable "project_id" {
 
 
 
-
-
-
 Add the following to the main.tf file :
-
 
 
 terraform {
@@ -59,34 +55,22 @@ terraform {
 
 provider "google" {
   project     = "<project_id>"
-
   region      = "us-east1"
-
   zone        = "us-east1-b"
 }
 
 module "instances" {
-
   source     = "./modules/instances"
-
-
 }
-
-
 
 
 Run terraform init in Cloud Shell in the root directory to initialize terraform.
 
 
-
-
 Task 2. Import infrastructure
 
 
-
-
 Next, navigate to modules/instances/instances.tf. Copy the following configuration into the file:
-
 
 
 resource "google_compute_instance" "tf-instance-1" {
@@ -130,13 +114,9 @@ resource "google_compute_instance" "tf-instance-2" {
 }
 
 
-
-
 Navigate to Compute Engine > VM Instances. Click on tf-instance-1. Copy the Instance ID 3283817794501516986
 
-
 Navigate to Compute Engine > VM Instances. Click on tf-instance-2. Copy the Instance ID 2469315227210915514
-
 
 
 
@@ -151,9 +131,7 @@ terraform plan
 terraform apply
 
 
-
 Task 3. Configure a remote backend
-
 
 
 Add the following code to the modules/storage/storage.tf file
@@ -167,18 +145,12 @@ resource "google_storage_bucket" "storage-bucket" {
 }
 
 
-
-
 Next, add the following to the main.tf file:
-
-
 
 
 module "storage" {
   source     = "./modules/storage"
 }
-
-
 
 
 Run the Below Commands In Cloud Shell : 
@@ -207,25 +179,17 @@ terraform {
 terraform init
 
 
-
 Task 4. Modify and update infrastructure
-
 
 
 navigate to modules/instances/instances.tf modify tf-instance-1 and tf-instance-2
 add tf-instance-3
 
 
-
-
 resource "google_compute_instance" "<Instance Name>" {
   name         = "<Instance Name>"
   machine_type = "n1-standard-2"
   zone         = "us-east1-c"
-
-
-
-
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-10"
@@ -240,7 +204,6 @@ resource "google_compute_instance" "<Instance Name>" {
     EOT
   allow_stopping_for_update = true
 }
-
 
 
 
@@ -307,9 +270,6 @@ module "vpc" {
 
 
 
-
-
-
 Run the Below Commands In Cloud Shell : 
 
 terraform init
@@ -319,10 +279,8 @@ terraform apply
 Next, navigate to the instances.tf file and update the configuration resources to connect tf-instance-1 to subnet-01 and tf-instance-2 to subnet-02
 
 
-
-
 resource "google_compute_instance" "tf-instance-1"{
-  name         = "tf-instance-1"
+name         = "tf-instance-1"
   machine_type = "n1-standard-2"
   zone         = "us-east1-c"
 
@@ -345,9 +303,7 @@ resource "google_compute_instance" "tf-instance-1"{
 resource "google_compute_instance" "tf-instance-2"{
   name         = "tf-instance-2"
   machine_type = "n1-standard-2"
-  zone         = "us-east1-c"
-  
-  
+  zone         = "us-east1-c"  
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-10"
