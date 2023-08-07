@@ -21,9 +21,9 @@ export FIREWALL_RULE=
 
 ```cmd
 gcloud compute instances create $INSTANCE_NAME \
-  --network nucleus-vpc \
-  --zone us-east1-b  \
-  --image=projects/debian-cloud/global/images/debian-10-buster-v20220406 
+--zone=us-east1-b \
+--machine-type=e2-micro \
+--image=projects/debian-cloud/global/images/debian-10-buster-v20220406 
 ```
 
 ## Task 2. Create a Kubernetes service cluster
