@@ -4,11 +4,13 @@
 
 ### Simply copy the following code and paste it into your `cloud shell terminal`.
 
+export INSTANCE_NAME=
+export REGION=
 
 ## Task 1. Create a project jumphost instance
 
 ```cmd
-gcloud compute instances create <Your Instance Name Goes Here> \
+gcloud compute instances create $INSTANCE_NAME \
   --network nucleus-vpc \
   --zone us-east1-b  \
   --machine-type f1-micro  \
@@ -22,21 +24,17 @@ gcloud compute instances create <Your Instance Name Goes Here> \
 gcloud container clusters create nucleus-backend \
           --num-nodes 1 \
           --network nucleus-vpc \
-          --region <Your Zonal Goes Here>
-
+          --region $REGION
 
 gcloud container clusters get-credentials nucleus-backend \
-          --region <Your Zonal Goes Here>
-
+          --region $REGION
 
 kubectl create deployment hello-server \
           --image=gcr.io/google-samples/hello-app:2.0
 
-
 kubectl expose deployment hello-server \
           --type=LoadBalancer \
           --port <Your App Port Number Goes Here>
-          
 ```
 
 ## Task 3. Set up an HTTP load balancer
