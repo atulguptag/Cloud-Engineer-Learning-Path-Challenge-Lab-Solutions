@@ -8,7 +8,13 @@
 export INSTANCE_NAME=
 ```
 ```cmd
-export REGION=us-east1
+export ZONAL=
+```
+```cmd
+export App_Port_Number=
+```
+```cmd
+export Firewall_Rule=
 ```
 
 ## Task 1. Create a project jumphost instance
@@ -28,17 +34,17 @@ gcloud compute instances create $INSTANCE_NAME \
 gcloud container clusters create nucleus-backend \
           --num-nodes 1 \
           --network nucleus-vpc \
-          --region $REGION
+          --region $ZONAL
 
 gcloud container clusters get-credentials nucleus-backend \
-          --region $REGION
+          --region $ZONAL
 
 kubectl create deployment hello-server \
           --image=gcr.io/google-samples/hello-app:2.0
 
 kubectl expose deployment hello-server \
           --type=LoadBalancer \
-          --port <Your App Port Number Goes Here>
+          --port $App_Port_Number
 ```
 
 ## Task 3. Set up an HTTP load balancer
@@ -66,7 +72,7 @@ gcloud compute instance-groups managed create web-server-group \
           --template web-server-template \
           --region us-east1
 
-gcloud compute firewall-rules create <Your Firewall rule Goes Here> \
+gcloud compute firewall-rules create $Firewall_Rule \
           --allow tcp:80 \
           --network nucleus-vpc
 
@@ -81,6 +87,7 @@ gcloud compute backend-services create web-server-backend \
           --protocol HTTP \
           --http-health-checks http-basic-check \
           --global
+
 gcloud compute backend-services add-backend web-server-backend \
           --instance-group web-server-group \
           --instance-group-region us-east1 \
@@ -88,6 +95,7 @@ gcloud compute backend-services add-backend web-server-backend \
 
 gcloud compute url-maps create web-server-map \
           --default-service web-server-backend
+
 gcloud compute target-http-proxies create http-lb-proxy \
           --url-map web-server-map
 
@@ -95,6 +103,7 @@ gcloud compute forwarding-rules create http-content-rule \
         --global \
         --target-http-proxy http-lb-proxy \
         --ports 80
+        
 gcloud compute forwarding-rules list
 ```
 
