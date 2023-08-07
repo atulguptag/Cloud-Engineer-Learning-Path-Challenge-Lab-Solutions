@@ -11,10 +11,10 @@ export INSTANCE_NAME=
 export ZONAL=
 ```
 ```cmd
-export App_Port_Number=
+export PORT_NUMBER=
 ```
 ```cmd
-export Firewall_Rule=
+export FIREWALL_RULE=
 ```
 
 ## Task 1. Create a project jumphost instance
@@ -23,9 +23,7 @@ export Firewall_Rule=
 gcloud compute instances create $INSTANCE_NAME \
   --network nucleus-vpc \
   --zone us-east1-b  \
-  --machine-type f1-micro  \
-  --image-family debian-9  \
-  --image-project debian-cloud
+  --image=projects/debian-cloud/global/images/debian-10-buster-v20220406 
 ```
 
 ## Task 2. Create a Kubernetes service cluster
@@ -44,7 +42,7 @@ kubectl create deployment hello-server \
 
 kubectl expose deployment hello-server \
           --type=LoadBalancer \
-          --port $App_Port_Number
+          --port $PORT_NUMBER
 ```
 
 ## Task 3. Set up an HTTP load balancer
@@ -72,7 +70,7 @@ gcloud compute instance-groups managed create web-server-group \
           --template web-server-template \
           --region us-east1
 
-gcloud compute firewall-rules create $Firewall_Rule \
+gcloud compute firewall-rules create $FIREWALL_RULE \
           --allow tcp:80 \
           --network nucleus-vpc
 
