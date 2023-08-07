@@ -4,8 +4,12 @@
 
 ### Simply copy the following code and paste it into your `cloud shell terminal`.
 
+```cmd
 export INSTANCE_NAME=
-export REGION=
+```
+```cmd
+export REGION=us-east1
+```
 
 ## Task 1. Create a project jumphost instance
 
