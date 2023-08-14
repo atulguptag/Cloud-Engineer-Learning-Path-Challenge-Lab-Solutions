@@ -49,17 +49,25 @@ gcloud compute firewall-rules create fw-ssh-prod --source-ranges=0.0.0.0/0 --tar
 
 ```cmd
 gcloud sql instances create griffin-dev-db --root-password password --region=us-east1 --database-version=MYSQL_5_7
+```
 
+```
 gcloud sql connect griffin-dev-db
-
+```
+* For SQL PASSWORD - use `password`.
+```
 CREATE DATABASE wordpress;
 GRANT ALL PRIVILEGES ON wordpress.* TO "wp_user"@"%" IDENTIFIED BY "stormwind_rules";
 FLUSH PRIVILEGES;
+```
 
+```
 exit
 ```
 
 ## Task 5. Create Kubernetes cluster
+
+* This will take approx 5-10 mins to create a Cluster, so be patience here.
 
 ```cmd
 gcloud container clusters create griffin-dev \
@@ -80,6 +88,7 @@ gsutil cp -r gs://cloud-training/gsp321/wp-k8s .
 
 ```cmd
 sed -i "s/username_goes_here/wp_user/g" wp-k8s/wp-env.yaml
+
 sed -i "s/username_goes_here/stormwind_rules/g" wp-k8s/wp-env.yaml
 
 cd wp-k8s
@@ -95,9 +104,12 @@ kubectl create secret generic cloudsql-instance-credentials \
 ## Task 7. Create a WordPress deployment
 
 ```cmd
-sed -i "s/YOUR_SQL_INSTANCE/griffin-dev-db/g" wp-deployment.yaml
+sed -i "s/YOUR_SQL_INSTANCE_CONNECTION_NAME/griffin-dev-db/g" wp-deployment.yaml
+```
 
+```
 kubectl create -f wp-deployment.yaml
+
 kubectl create -f wp-service.yaml
 
 kubectl get svc -w
