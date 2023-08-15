@@ -1,6 +1,7 @@
 ## `Lab Name` - *Set Up and Configure a Cloud Environment in Google Cloud: Challenge Lab [GSP321]*
 ## `Lab Link` - [Click Here](https://www.cloudskillsboost.google/focuses/10603?parent=catalog)
 
+### --DON'T CHANGE ANYTHING BELOW, YOU JUST NEED TO COPY THE COMMANDS AND PASTE IT IN YOUR CLOUD SHELL TERMINAL--
 
 * Run the below commands in the cloud shell terminal
 
@@ -54,7 +55,9 @@ gcloud sql instances create griffin-dev-db --root-password password --region=us-
 ```
 gcloud sql connect griffin-dev-db
 ```
+
 * For SQL PASSWORD - use `password`.
+
 ```
 CREATE DATABASE wordpress;
 GRANT ALL PRIVILEGES ON wordpress.* TO "wp_user"@"%" IDENTIFIED BY "stormwind_rules";
@@ -104,14 +107,16 @@ kubectl create secret generic cloudsql-instance-credentials \
 ## Task 7. Create a WordPress deployment
 
 ```cmd
-sed -i "s/YOUR_SQL_INSTANCE_CONNECTION_NAME/griffin-dev-db/g" wp-deployment.yaml
+sed -i "s/YOUR_SQL_INSTANCE/griffin-dev-db/g" wp-deployment.yaml
 ```
 
 ```
 kubectl create -f wp-deployment.yaml
 
 kubectl create -f wp-service.yaml
+```
 
+```
 kubectl get svc -w
 ```
 
@@ -127,7 +132,7 @@ In the *Name Field* - `<Any Name>`
 
 Click Next, 
 
-Host name - `<External IP of your wordpress db>`
+Host name - `<External IP of your wordpress db which you had got previously from this command *kubectl get svc -w*>`
 
 Path - `/`
 

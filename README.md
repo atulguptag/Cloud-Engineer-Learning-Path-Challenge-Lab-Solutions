@@ -1,6 +1,5 @@
 ## Cloud Engineer Learning Path Challenge Labs Solutions Link
 ## Course Link - https://www.cloudskillsboost.google/journeys/11
-
 ## Quest Link - https://www.cloudskillsboost.google/quests/120
 
 [Create and Manage Cloud Resources: Challenge Lab](https://www.cloudskillsboost.google/focuses/10258?parent=catalog)
