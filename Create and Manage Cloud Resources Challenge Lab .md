@@ -21,7 +21,7 @@ export FIREWALL_RULE=
 
 ```cmd
 gcloud compute instances create $INSTANCE_NAME \
---zone=us-east1-b \
+--zone=$ZONAL \
 --machine-type=e2-micro \
 --image=projects/debian-cloud/global/images/debian-10-buster-v20220519
 ```
