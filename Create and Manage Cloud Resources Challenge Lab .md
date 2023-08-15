@@ -23,7 +23,7 @@ export FIREWALL_RULE=
 gcloud compute instances create $INSTANCE_NAME \
 --zone=us-east1-b \
 --machine-type=e2-micro \
---image=projects/debian-cloud/global/images/debian-10-buster-v20220406 
+--image=projects/debian-cloud/global/images/debian-10-buster-v20220519
 ```
 
 ## Task 2. Create a Kubernetes service cluster
