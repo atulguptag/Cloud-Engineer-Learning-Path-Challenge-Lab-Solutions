@@ -79,7 +79,7 @@ terraform init
 resource "google_compute_instance" "tf-instance-1" {
   name         = "tf-instance-1"
   machine_type = "n1-standard-1"
-  zone         = "YOUR_ZONE"
+  zone         = "ZONE"
 
   boot_disk {
     initialize_params {
@@ -99,7 +99,7 @@ resource "google_compute_instance" "tf-instance-1" {
 resource "google_compute_instance" "tf-instance-2" {
   name         = "tf-instance-2"
   machine_type = "n1-standard-1"
-  zone         =  "YOUR_ZONE"
+  zone         =  "ZONE"
 
   boot_disk {
     initialize_params {
@@ -120,11 +120,11 @@ resource "google_compute_instance" "tf-instance-2" {
 Run this in CloudShell
 
 ```cmd
-terraform import module.instances.google_compute_instance.tf-instance-1 [Instance-1_ID]
+terraform import module.instances.google_compute_instance.tf-instance-1 [INSTANCE_ID_1]
 ```
 
 ```cmd
-terraform import module.instances.google_compute_instance.tf-instance-2 [Instance-2_ID]
+terraform import module.instances.google_compute_instance.tf-instance-2 [INSTANCE_ID_2]
 ```
 
 ```cmd
@@ -132,7 +132,7 @@ terraform plan
 terraform apply
 ```
 
-***********************************************************************************************************
+#############################################################################
 
 ## Task 3. Configure a remote backend
 
@@ -140,7 +140,7 @@ terraform apply
 
 ```cmd
 resource "google_storage_bucket" "storage-bucket" {
-  name          = "ENTER_BUCKET_NAME"
+  name          = "YOUR_BUCKET_NAME"
   location      = "us"
   force_destroy = true
   uniform_bucket_level_access = true
@@ -167,7 +167,7 @@ terraform apply
 ```cmd
 terraform {
   backend "gcs" {
-    bucket  = "BUCKET_NAME"
+    bucket  = "YOUR_BUCKET_NAME"
  prefix  = "terraform/state"
   }
   required_providers {
@@ -186,7 +186,7 @@ terraform init
 ```
 
 
-***********************************************************************************************************
+#############################################################################
 
 ## Task 4. Modify and update infrastructure
 
@@ -194,9 +194,9 @@ terraform init
 
 ```cmd
 resource "google_compute_instance" "INSTANCE_NAME" {
-  name         = "INSTANCE_NAME"
+  name         = "YOUR_INSTANCE_NAME"
   machine_type = "n1-standard-2"
-  zone         = "YOUR_ZONE"
+  zone         = "ZONE"
 
   boot_disk {
     initialize_params {
@@ -221,7 +221,7 @@ terraform init
 terraform apply
 ```
 
-***********************************************************************************************************
+#############################################################################
 
 ## Task 5. Destroy resources
 
@@ -237,7 +237,7 @@ terraform apply
 terraform apply
 ```
 
-***********************************************************************************************************
+#############################################################################
 
 ## Task 6. Use a module from the Registry
 
@@ -265,7 +265,7 @@ module "vpc" {
             subnet_region         = "us-east1"
             subnet_private_access = "true"
             subnet_flow_logs      = "true"
-            description           = "Subscribe QUICK GCP LAB"
+            description           = "Subscribe TO ATUL GUPTA"
         },
     ]
 }
@@ -332,7 +332,7 @@ terraform init
 terraform apply
 ```
 
-***********************************************************************************************************
+#############################################################################
 
 ## Task 7. Configure a firewall
 
@@ -360,4 +360,4 @@ terraform init
 terraform apply
 ```
 
-# Congratulations🎉! You're done with this Challenge Lab.
+# Congratulations🎉! You're all done with this Challenge Lab.
