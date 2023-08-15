@@ -1,11 +1,10 @@
 ## Cloud Engineer Learning Path Challenge Labs Solutions Link
-## Course Link - https://www.cloudskillsboost.google/journeys/11
-## Quest Link - https://www.cloudskillsboost.google/quests/120
+## *Course Link* - https://www.cloudskillsboost.google/journeys/11
 
-[Create and Manage Cloud Resources: Challenge Lab](https://www.cloudskillsboost.google/focuses/10258?parent=catalog)
+* *Quest link* - [Create and Manage Cloud Resources: Challenge Lab](https://www.cloudskillsboost.google/quests/120)
 
-[Perform Foundational Infrastructure Tasks in Google Cloud: Challenge Lab](https://www.cloudskillsboost.google/focuses/10379?parent=catalog)
+* *Quest Link* - [Perform Foundational Infrastructure Tasks in Google Cloud: Challenge Lab](https://www.cloudskillsboost.google/quests/118?parent=catalog)
 
-[Set Up and Configure a Cloud Environment in Google Cloud: Challenge Lab](https://www.cloudskillsboost.google/focuses/10603?parent=catalog)
+* *Quest Link* - [Set Up and Configure a Cloud Environment in Google Cloud: Challenge Lab](https://www.cloudskillsboost.google/quests/119?parent=catalog)
 
-[Automating Infrastructure on Google Cloud with Terraform: Challenge Lab](https://www.cloudskillsboost.google/focuses/42740?parent=catalog)
+* *Quest Link* - [Automating Infrastructure on Google Cloud with Terraform: Challenge Lab](https://www.cloudskillsboost.google/quests/159?parent=catalog)
