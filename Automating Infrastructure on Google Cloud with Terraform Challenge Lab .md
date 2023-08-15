@@ -227,6 +227,9 @@ terraform apply
 
 ```cmd
 terraform taint module.instances.google_compute_instance.INSTANCE_NAME
+```
+
+```
 terraform init
 terraform apply
 ```
