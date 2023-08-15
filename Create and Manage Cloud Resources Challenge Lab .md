@@ -1,7 +1,7 @@
 ## `Lab Name` - *Create and Manage Cloud Resources: Challenge Lab Solution [GSP313]*
 ## `Lab Link` - [Click Here](https://www.cloudskillsboost.google/focuses/10258?parent=catalog)
 
-
+## [YouTube Solution Link](https://youtu.be/yYKhj0ok9_o)
 ### Simply copy the following code and paste it into your `cloud shell terminal`.
 
 ```cmd

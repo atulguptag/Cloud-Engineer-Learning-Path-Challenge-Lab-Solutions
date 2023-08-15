@@ -1,6 +1,7 @@
 ## `Lab Name` - *Set Up and Configure a Cloud Environment in Google Cloud: Challenge Lab [GSP321]*
 ## `Lab Link` - [Click Here](https://www.cloudskillsboost.google/focuses/10603?parent=catalog)
 
+## [YouTube Solution Link](https://youtu.be/WR4zdh-wdAU)
 ### --DON'T CHANGE ANYTHING BELOW, YOU JUST NEED TO COPY THE COMMANDS AND PASTE IT IN YOUR CLOUD SHELL TERMINAL--
 
 * Run the below commands in the cloud shell terminal
