@@ -146,4 +146,4 @@ Click Next, Next and then click on *`Create`*
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=user:$USER_NAME2 --role=roles/editor
 ```
 
-# Congratulations🎉! You are Done with the Challenge Lab.  
+# Congratulations🎉! You're all done with this Challenge Lab.  
