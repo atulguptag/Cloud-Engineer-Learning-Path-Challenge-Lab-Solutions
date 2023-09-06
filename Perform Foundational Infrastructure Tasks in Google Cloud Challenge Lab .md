@@ -167,7 +167,13 @@ exports.thumbnail = (event, context) => {
 };
 ```
 
-* Put the below code in your `Package.json` file.
+* This will create and open your `package.json` file.
+
+```
+nano package.json
+```
+
+* Put the below code in your `package.json` file.
 
 ```
 {
@@ -196,7 +202,8 @@ exports.thumbnail = (event, context) => {
 gcloud functions deploy $FUNCTION_NAME \
   --stage-bucket $BUCKET_NAME \
   --trigger-topic $YOUR_TOPIC_NAME \
-  --runtime nodejs14
+  --runtime nodejs14 \
+  --entry-point thumbnail
 ```
 
 ## Task 4: Remove the previous cloud engineer
