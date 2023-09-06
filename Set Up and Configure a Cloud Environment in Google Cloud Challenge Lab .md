@@ -10,7 +10,6 @@
 export USER_NAME2=
 ```
 
-
 ## Task 1. Create development VPC manually
 
 ```cmd
