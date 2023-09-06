@@ -200,6 +200,7 @@ nano package.json
 
 ```
 gcloud functions deploy $FUNCTION_NAME \
+  --region $REGION \
   --stage-bucket $BUCKET_NAME \
   --trigger-topic $YOUR_TOPIC_NAME \
   --runtime nodejs14 \
