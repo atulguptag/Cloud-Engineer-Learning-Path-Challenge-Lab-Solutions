@@ -15,6 +15,13 @@ Run the below commands in the cloud shell terminal
 
 * Click on `Create`
 
+## OR
+
+* You can use the below command to create a `Cloud Storage Bucket`.
+
+```
+gsutil mb gs://YOUR_BUCKET_NAME
+```
 
 ## Task 2: Create a Pub/Sub topic
 
@@ -23,6 +30,13 @@ Run the below commands in the cloud shell terminal
 
 * *Create Topic* > Name: the name provided in your lab > `Create Topic`
 
+## OR
+
+* You can use the below command to create a `Pub/Sub - Topic`.
+
+```
+gcloud pubsub topics create YOUR_TOPIC_NAME
+```
 
 ## Task 3: Create the thumbnail Cloud Function
 
@@ -57,6 +71,7 @@ Run the below commands in the cloud shell terminal
 
 * Refresh bucket
 
+* You will see an another file just created with the name - `Image_Name 64x64 thumbnail` (Like this).
 
 ## Task 4: Remove the previous cloud engineer
 
@@ -65,4 +80,4 @@ Run the below commands in the cloud shell terminal
 * Search for the "Username 2" > *Edit* > `Delete Role`
  
 
-# Congratulations! You are Done with the Challenge Lab.
+# Congratulations🎉! You're all done with this Challenge Lab.
