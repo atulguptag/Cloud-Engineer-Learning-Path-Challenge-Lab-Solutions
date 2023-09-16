@@ -1,4 +1,4 @@
-## `Lab Name` - *Create and Manage Cloud Resources: Challenge Lab Solution [GSP313]*
+## `Lab Name` - *Create and Manage Cloud Resources: Challenge Lab [GSP313]*
 ## `Lab Link` - [Click Here](https://www.cloudskillsboost.google/focuses/10258?parent=catalog)
 
 ## [YouTube Solution Link](https://youtu.be/yYKhj0ok9_o)
@@ -75,7 +75,9 @@ gcloud compute firewall-rules create $FIREWALL_RULE \
           --network nucleus-vpc
 
 gcloud compute http-health-checks create http-basic-check
+```
 
+```
 gcloud compute instance-groups managed \
           set-named-ports web-server-group \
           --named-ports http:80 \
