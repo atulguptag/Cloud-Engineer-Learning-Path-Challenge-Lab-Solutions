@@ -31,7 +31,6 @@ gcloud compute instances create $INSTANCE_NAME \
 ```cmd
 gcloud container clusters create nucleus-backend \
           --num-nodes 1 \
-          --network nucleus-vpc \
           --region $ZONAL
 
 gcloud container clusters get-credentials nucleus-backend \
@@ -60,7 +59,6 @@ EOF
 ```cmd
 gcloud compute instance-templates create web-server-template \
           --metadata-from-file startup-script=startup.sh \
-          --network nucleus-vpc \
           --machine-type g1-small \
           --region us-east1
 
@@ -71,8 +69,7 @@ gcloud compute instance-groups managed create web-server-group \
           --region us-east1
 
 gcloud compute firewall-rules create $FIREWALL_RULE \
-          --allow tcp:80 \
-          --network nucleus-vpc
+          --allow tcp:80 
 
 gcloud compute http-health-checks create http-basic-check
 ```
@@ -106,5 +103,5 @@ gcloud compute forwarding-rules create http-content-rule \
         
 gcloud compute forwarding-rules list
 ```
-
+### After running the above commands, you have to wait for 5-7 mintues. So be patience here.
 # Congratulations🎉! You are done with the Challenge Lab.
