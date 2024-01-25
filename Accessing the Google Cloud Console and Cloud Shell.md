@@ -1,6 +1,6 @@
 ## `Lab Name` - *Accessing the Google Cloud Console and Cloud Shell*
 
-## [YouTube Solution Link]()
+## [YouTube Solution Link](https://youtu.be/2ly-B8QKBl0?si=lqiohyJHUlTyiH5f)
 
 Run the below commands in the cloud shell terminal
 
