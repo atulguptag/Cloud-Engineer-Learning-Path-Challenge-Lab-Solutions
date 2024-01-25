@@ -85,9 +85,6 @@ gsutil iam ch allUsers:objectViewer gs://$BUCKET_NAME
 
 ## Task 4. Explore the Cloud Shell Editor
 
+* Follow the video carefully.
 
-git clone https://github.com/googlecodelabs/orchestrate-with-kubernetes.git
-
-mkdir test
-
-
+# Congratulations🎉! You're all done with this Lab.
