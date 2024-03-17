@@ -100,12 +100,12 @@ echo $API_KEY
 ```
 --------------------------------------------------------------------------------------------------------------------------
 ```
-gcloud iam service-accounts create techvine \
+gcloud iam service-accounts create atulguptag \
   --display-name "my natural language service account"
 gcloud iam service-accounts keys create ~/key.json \
-  --iam-account techvine@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
+  --iam-account atulguptag@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
 export GOOGLE_APPLICATION_CREDENTIALS="/home/$USER/key.json"
-gcloud auth activate-service-account techvine@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+gcloud auth activate-service-account atulguptag@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
 gcloud ml language analyze-entities --content="Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat." > result.json
 gcloud auth login --no-launch-browser
 ```
