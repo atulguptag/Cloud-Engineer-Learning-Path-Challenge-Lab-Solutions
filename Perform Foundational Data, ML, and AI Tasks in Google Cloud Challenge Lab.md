@@ -56,14 +56,14 @@ print(
 )
 EOF
 ```
-## Task 2: Run a simple Dataproc job
+
 ```
 python3 table.py
 
 gcloud dataflow jobs run lab-transform --gcs-location gs://dataflow-templates-$REGION/latest/GCS_Text_to_BigQuery --worker-machine-type e2-standard-2 --region $REGION --staging-location gs://$PROJECT_ID-marking/temp --parameters javascriptTextTransformGcsPath=gs://cloud-training/gsp323/lab.js,JSONPath=gs://cloud-training/gsp323/lab.schema,javascriptTextTransformFunctionName=transform,outputTable=$PROJECT_ID:$Dataset.$TABLE,inputFilePattern=gs://cloud-training/gsp323/lab.csv,bigQueryLoadingTemporaryDirectory=gs://$PROJECT_ID-marking/bigquery_temp
 ```
 
-## Task 3: Use the Google Cloud Speech API
+## Task 2: Run a simple Dataproc job
 
 ```
 gcloud dataproc clusters create cluster-f357 --region $REGION --zone $REGION-a --master-machine-type e2-standard-2 --master-boot-disk-size 500 --num-workers 2 --worker-machine-type e2-standard-2 --worker-boot-disk-size 500 --image-version 2.0-debian10 --project $PROJECT_ID
@@ -106,6 +106,9 @@ gcloud auth login --no-launch-browser
 ```
 
 --------------------------------------------------------------------------------------------------------------------------
+
+## Task 3: Use the Google Cloud Speech API
+
 ```
 gsutil cp result.json $TASK_4
 cat > request.json <<EOF 
