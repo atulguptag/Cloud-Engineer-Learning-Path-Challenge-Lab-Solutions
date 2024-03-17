@@ -80,12 +80,17 @@ hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt
 --------------------------------------------------------------------------------------------------------------------------
 ```
 gcloud config set dataproc/region $REGION
-gcloud dataproc jobs submit spark --cluster cluster-f357 \
+gcloud dataproc jobs submit spark 
+  --cluster=cluster-f357 \
+  --region=$REGION \
   --class org.apache.spark.examples.SparkPageRank \
   --cluster=cluster-f357 \
-  --jars file:///usr/lib/spark/examples/jars/spark-examples.jar -- /data.txt
+  --jars file:///usr/lib/spark/examples/jars/spark-examples.jar 
+  -- /data.txt
 ```
 --------------------------------------------------------------------------------------------------------------------------
+
+## Task 3: Use the Google Cloud Speech API
 ```
 gcloud services enable apikeys.googleapis.com
 gcloud alpha services api-keys create --display-name="testname" 
@@ -107,7 +112,7 @@ gcloud auth login --no-launch-browser
 
 --------------------------------------------------------------------------------------------------------------------------
 
-## Task 3: Use the Google Cloud Speech API
+## Task 4. Use the Cloud Natural Language API
 
 ```
 gsutil cp result.json $TASK_4
@@ -144,7 +149,6 @@ EOF
 ```
 --------------------------------------------------------------------------------------------------------------------------
 
-## Task 4. Use the Cloud Natural Language API
 ```
 curl -s -H 'Content-Type: application/json' \
     -H "Authorization: Bearer $ACCESS_TOKEN" \
