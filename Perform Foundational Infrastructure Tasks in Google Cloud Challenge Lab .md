@@ -52,19 +52,21 @@ gcloud pubsub topics create $YOUR_TOPIC_NAME
 
 * *Name*: The Name provided in your lab 
 
-* *Region*: `us-east1`
+* *Gen*: `2nd gen` 
+
+* *Region*: `Your_Lab_Region`
 
 * *Trigger*: `Cloud Storage`
 
-* *Event type*: `Finalize/Create`
+* *Event type*: `Finalized (3rd opton)`
 
 * *Bucket*: BROWSE > `Select the qwiklabs bucket`
 
 * *Remaining default* > `Next`
 
-* *Runtime*: `Node.js 14`
+* *Runtime*: `Node.js 20(Latest)`
 
-* *Entry point*: `thumbnail`
+* *Entry point*: `memories-thumbnail-maker`
 
 * Add the `index.js` and `package.json` code by yourself.
 
